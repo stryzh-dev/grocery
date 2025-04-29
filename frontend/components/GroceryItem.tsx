@@ -1,14 +1,15 @@
 'use client';
 
-import { GroceryItem as GroceryItemType } from '../types/grocery';
-import { useUpdateGrocery, useDeleteGrocery } from '../hooks/useGroceries';
-import { Checkbox } from './ui/checkbox';
+import { GroceryItem as GroceryItemType } from '@/types/grocery';
+import { useUpdateGrocery, useDeleteGrocery } from '@/hooks/useGroceries';
+import { Checkbox } from '@ui/Checkbox';
+import { Button } from './ui/Button';
 
 interface Props {
   item: GroceryItemType;
 }
 
-export default function GroceryItem({ item }: Props) {
+const GroceryItem = ({ item }: Props) => {
   const updateGrocery = useUpdateGrocery();
   const deleteGrocery = useDeleteGrocery();
 
@@ -28,13 +29,15 @@ export default function GroceryItem({ item }: Props) {
         <a href={`/edit/${item.id}`} className="text-blue-500">
           Edit
         </a>
-        <button
+        <Button
           onClick={() => deleteGrocery.mutate(item.id)}
           className="text-red-500"
         >
           Delete
-        </button>
+        </Button>
       </div>
     </div>
   );
 }
+
+export default GroceryItem;

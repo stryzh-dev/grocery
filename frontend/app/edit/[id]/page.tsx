@@ -4,7 +4,7 @@ import { useRouter, useParams } from 'next/navigation';
 import { useGroceries, useUpdateGrocery } from '@/hooks/useGroceries';
 import GroceryForm from '@/components/GroceryForm';
 
-export default function EditPage() {
+const EditPage = () => {
   const { id } = useParams();
   const { data } = useGroceries();
   const updateGrocery = useUpdateGrocery();
@@ -29,3 +29,5 @@ export default function EditPage() {
     </div>
   );
 }
+
+export default EditPage;

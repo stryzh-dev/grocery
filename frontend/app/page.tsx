@@ -1,8 +1,8 @@
 import GroceryList from '@/components/GroceryList';
-import { Button } from '@/components/ui/button';
+import { Button } from '@ui/Button';
 import Link from 'next/link';
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="min-h-screen bg-blue-50 flex flex-col items-center sm:p-6 p-2">
       <div className="container max-w-2xl bg-white sm:p-6 p-2 rounded-lg shadow-md">
@@ -16,9 +16,10 @@ export default function Home() {
             </Button>
           </Link>
         </div>
-
         <GroceryList />
       </div>
     </main>
   );
 }
+
+export default Home;

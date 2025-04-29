@@ -1,8 +1,8 @@
 'use client';
 
 import { useCallback, useMemo, useState } from 'react';
-import { Input } from './ui/input';
-import { Button } from './ui/button';
+import { Input } from './ui/Input';
+import { Button } from './ui/Button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
@@ -11,12 +11,11 @@ interface Props {
   initialAmount?: number;
   onSubmit: (title: string, amount: number) => void;
 }
-
-export default function GroceryForm({
+const GroceryForm =({
   initialTitle = '',
   initialAmount = 1,
   onSubmit,
-}: Props) {
+}: Props) => {
   const [title, setTitle] = useState(initialTitle);
   const [amount, setAmount] = useState(initialAmount.toString());
 
@@ -84,3 +83,5 @@ export default function GroceryForm({
     </main>
   );
 }
+
+export default GroceryForm;

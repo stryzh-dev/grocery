@@ -6,7 +6,7 @@ import {
   useDeleteGrocery,
   useGroceries,
   useUpdateGrocery,
-} from '../hooks/useGroceries';
+} from '@/hooks/useGroceries';
 import {
   Table,
   TableHeader,
@@ -14,9 +14,10 @@ import {
   TableRow,
   TableHead,
   TableCell,
-} from './ui/table';
+} from '@ui/Table';
+import { Button } from '@ui/Button';
 
-export default function GroceryList() {
+const GroceryList = () => {
   const { data, isLoading } = useGroceries();
   const deleteGrocery = useDeleteGrocery();
   const updateGrocery = useUpdateGrocery();
@@ -60,11 +61,11 @@ export default function GroceryList() {
               </TableCell>
               <TableCell className="text-center">
                 <div className="flex justify-center gap-2">
-                  <button
-                    className={`px-2 py-1 rounded-md text-sm font-medium border ${
+                  <Button
+                    className={`px-2 py-1 rounded-md text-sm font-medium ${
                       item.bought
-                        ? 'bg-green-100 border-green-500 text-green-700'
-                        : 'border-gray-300 text-gray-600'
+                        ? 'bg-green-100 border-green-500 text-green-700 hover:bg-green-150'
+                        : 'bg-green-150 border-gray-300 text-gray-600 hover:bg-green-200'
                     }`}
                     onClick={() =>
                       !item.bought &&
@@ -72,12 +73,12 @@ export default function GroceryList() {
                     }
                   >
                     Yes
-                  </button>
-                  <button
-                    className={`px-2 py-1 rounded-md text-sm font-medium border ${
+                  </Button>
+                  <Button
+                    className={`px-2 py-1 rounded-md text-sm font-medium ${
                       !item.bought
-                        ? 'bg-red-100 border-red-500 text-red-700'
-                        : 'border-gray-300 text-gray-600'
+                        ? 'bg-red-100 border-red-500 text-red-700 hover:bg-red-150'
+                        : 'bg-red-50 border border-gray-300 text-gray-600 hover:bg-red-100'
                     }`}
                     onClick={() =>
                       item.bought &&
@@ -85,23 +86,23 @@ export default function GroceryList() {
                     }
                   >
                     No
-                  </button>
+                  </Button>
                 </div>
               </TableCell>
               <TableCell className="text-center">
                 <div className="flex justify-center gap-2">
-                  <button
+                  <Button
                     className="px-2 py-1 text-sm font-medium border border-blue-400 text-blue-600 rounded-md bg-blue-50 hover:bg-blue-100"
                     onClick={() => router.push(`/edit/${item.id}`)}
                   >
                     Edit
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     className="px-2 py-1 text-sm font-medium border border-red-400 text-red-600 rounded-md bg-red-50 hover:bg-red-100"
                     onClick={() => deleteGrocery.mutate(item.id)}
                   >
                     Delete
-                  </button>
+                  </Button>
                 </div>
               </TableCell>
             </TableRow>
@@ -111,3 +112,5 @@ export default function GroceryList() {
     </div>
   );
 }
+
+export default GroceryList;

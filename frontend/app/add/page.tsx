@@ -4,7 +4,7 @@ import GroceryForm from '@/components/GroceryForm';
 import { useAddGrocery } from '@/hooks/useGroceries';
 import { useRouter } from 'next/navigation';
 
-export default function AddPage() {
+const AddPage = () => {
   const addGrocery = useAddGrocery();
   const router = useRouter();
 
@@ -19,3 +19,6 @@ export default function AddPage() {
     </div>
   );
 }
+
+export default AddPage;
+
