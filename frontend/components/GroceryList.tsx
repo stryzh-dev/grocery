@@ -111,6 +111,6 @@ const GroceryList = () => {
       </Table>
     </div>
   );
-}
+};
 
 export default GroceryList;

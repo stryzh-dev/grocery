@@ -11,7 +11,7 @@ interface Props {
   initialAmount?: number;
   onSubmit: (title: string, amount: number) => void;
 }
-const GroceryForm =({
+const GroceryForm = ({
   initialTitle = '',
   initialAmount = 1,
   onSubmit,
@@ -82,6 +82,6 @@ const GroceryForm =({
       </div>
     </main>
   );
-}
+};
 
 export default GroceryForm;

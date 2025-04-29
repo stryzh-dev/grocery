@@ -38,6 +38,6 @@ const GroceryItem = ({ item }: Props) => {
       </div>
     </div>
   );
-}
+};
 
 export default GroceryItem;

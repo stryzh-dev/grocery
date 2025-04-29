@@ -18,7 +18,6 @@ const AddPage = () => {
       <GroceryForm onSubmit={handleSubmit} />
     </div>
   );
-}
+};
 
 export default AddPage;
-
